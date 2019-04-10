@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrackerLibrary;
+using TrackerLibrary.DataAccess;
 
 namespace TrackerLibrary
 {
@@ -14,23 +17,27 @@ namespace TrackerLibrary
         /// <summary>
         /// Allows to read the database connections, but not set them
         /// </summary>
-        public static List<IDataConnection> Connections { get; private set; } = new List<IDataConnection>();
+        public static IDataConnection Connection { get; private set; }
 
-        public static void InitializeConnections(bool dataBase, bool textFiles)
-        {
-            if(dataBase == true)
+        public static void InitializeConnections(DatabaseType db)
+        {         
+            if(db == DatabaseType.Sql)
             {
                 //TODO: Set SQL connector properly
                 SqlConnector sql = new SqlConnector();
-                Connections.Add(sql);
+                Connection = sql;
             }
-
-            if(textFiles == true)
+            else if(db == DatabaseType.TextFile)
             {
                 //TODO: create text file connection
                 TextFileConnector text = new TextFileConnector();
-                Connections.Add(text);
+                Connection = text;
             }
+        }
+
+        public static string CnnString(string name)
+        {
+           return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }

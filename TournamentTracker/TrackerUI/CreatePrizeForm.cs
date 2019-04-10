@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using TrackerLibrary.DataAccess;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -24,10 +26,7 @@ namespace TrackerUI
             {
                 PrizeModel model = new PrizeModel(placeNameValue.Text, placeNumberValue.Text, prizeAmountValue.Text, prizePercentageValue.Text);
 
-                foreach(IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CratePrize(model);
-                }
+                GlobalConfig.Connection.CratePrize(model);
             }
             else
             {
@@ -40,6 +39,11 @@ namespace TrackerUI
             prizePercentageValue.Text = "0";
         }
 
+
+        /// <summary>
+        /// Form validation to prevent eronious data
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateForm()
         {
             bool output = true;
@@ -84,6 +88,11 @@ namespace TrackerUI
         }
 
         private void placeNameValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreatePrizeForm_Load(object sender, EventArgs e)
         {
 
         }
