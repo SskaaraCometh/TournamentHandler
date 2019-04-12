@@ -34,7 +34,7 @@
             this.prizesListBox = new System.Windows.Forms.ListBox();
             this.deleteSelectedPlayersButton = new System.Windows.Forms.Button();
             this.currentPlayersLabel = new System.Windows.Forms.Label();
-            this.tournamentPlayersListBox = new System.Windows.Forms.ListBox();
+            this.tournamentTeamsListBox = new System.Windows.Forms.ListBox();
             this.createPrizeButton = new System.Windows.Forms.Button();
             this.addTeamButton = new System.Windows.Forms.Button();
             this.createNewTeamLink = new System.Windows.Forms.LinkLabel();
@@ -125,16 +125,16 @@
             this.currentPlayersLabel.TabIndex = 40;
             this.currentPlayersLabel.Text = "Teams / Players";
             // 
-            // tournamentPlayersListBox
+            // tournamentTeamsListBox
             // 
-            this.tournamentPlayersListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tournamentPlayersListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tournamentPlayersListBox.FormattingEnabled = true;
-            this.tournamentPlayersListBox.ItemHeight = 30;
-            this.tournamentPlayersListBox.Location = new System.Drawing.Point(413, 148);
-            this.tournamentPlayersListBox.Name = "tournamentPlayersListBox";
-            this.tournamentPlayersListBox.Size = new System.Drawing.Size(281, 152);
-            this.tournamentPlayersListBox.TabIndex = 39;
+            this.tournamentTeamsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tournamentTeamsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tournamentTeamsListBox.FormattingEnabled = true;
+            this.tournamentTeamsListBox.ItemHeight = 30;
+            this.tournamentTeamsListBox.Location = new System.Drawing.Point(413, 148);
+            this.tournamentTeamsListBox.Name = "tournamentTeamsListBox";
+            this.tournamentTeamsListBox.Size = new System.Drawing.Size(281, 152);
+            this.tournamentTeamsListBox.TabIndex = 39;
             // 
             // createPrizeButton
             // 
@@ -165,6 +165,7 @@
             this.addTeamButton.TabIndex = 37;
             this.addTeamButton.Text = "Add Team";
             this.addTeamButton.UseVisualStyleBackColor = true;
+            this.addTeamButton.Click += new System.EventHandler(this.addTeamButton_Click);
             // 
             // createNewTeamLink
             // 
@@ -185,6 +186,7 @@
             this.selectTeamDropDown.Name = "selectTeamDropDown";
             this.selectTeamDropDown.Size = new System.Drawing.Size(305, 38);
             this.selectTeamDropDown.TabIndex = 35;
+            this.selectTeamDropDown.SelectedIndexChanged += new System.EventHandler(this.selectTeamDropDown_SelectedIndexChanged);
             // 
             // selectTeamLabel
             // 
@@ -258,7 +260,7 @@
             this.Controls.Add(this.prizesListBox);
             this.Controls.Add(this.deleteSelectedPlayersButton);
             this.Controls.Add(this.currentPlayersLabel);
-            this.Controls.Add(this.tournamentPlayersListBox);
+            this.Controls.Add(this.tournamentTeamsListBox);
             this.Controls.Add(this.createPrizeButton);
             this.Controls.Add(this.addTeamButton);
             this.Controls.Add(this.createNewTeamLink);
@@ -284,7 +286,7 @@
         private System.Windows.Forms.ListBox prizesListBox;
         private System.Windows.Forms.Button deleteSelectedPlayersButton;
         private System.Windows.Forms.Label currentPlayersLabel;
-        private System.Windows.Forms.ListBox tournamentPlayersListBox;
+        private System.Windows.Forms.ListBox tournamentTeamsListBox;
         private System.Windows.Forms.Button createPrizeButton;
         private System.Windows.Forms.Button addTeamButton;
         private System.Windows.Forms.LinkLabel createNewTeamLink;
