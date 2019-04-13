@@ -176,6 +176,7 @@ namespace TrackerLibrary.DataAccess.TextHelper
                 {
                     t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First()); //if 0 in the list, it will crash
                 }
+                output.Add(t);
             }
 
             return output;
