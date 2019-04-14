@@ -14,8 +14,9 @@ namespace TrackerUI
 {
     public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
-        List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
+        List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All(); //returns teams in database
         List<TeamModel> selectedTeams = new List<TeamModel>();
+        //List<TournamentModel> tournament = List<TournamentModel>();
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
 
         public CreateTournamentForm()
@@ -32,7 +33,7 @@ namespace TrackerUI
 
             tournamentTeamsListBox.DataSource = null;
             tournamentTeamsListBox.DataSource = selectedTeams;
-            tournamentTeamsListBox.DisplayMember = "TeamName";
+            tournamentTeamsListBox.DisplayMember = "TeamName"; //get string name of a function to display
 
             prizesListBox.DataSource = null;
             prizesListBox.DataSource = selectedPrizes;
@@ -107,6 +108,33 @@ namespace TrackerUI
                 selectedPrizes.Remove(p);
                 InitialiseLists();
             }
+        }
+
+        private void createTournamentButton_Click(object sender, EventArgs e)
+        {
+            //Validate data
+            decimal fee = 0;
+
+            bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out fee); //tries to convert value to decimal, returns value as fee variable, if wrong value, fee remains 0 and bool = false
+
+            if(!feeAcceptable)
+            {
+                MessageBox.Show("Enter a valid amount", "Invalid Fee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            TournamentModel tm = new TournamentModel();
+            tm.TournamentName = tournamentNameValue.Text;
+            tm.EntryFee = fee;
+            tm.Prizes = selectedPrizes;
+            tm.EnteredTeams = selectedTeams;
+
+            //Create our matchups
+
+            //Create tournament: Entry
+            //Create all prize entries
+            //Create all of the team entries
+            GlobalConfig.Connection.CreateTournament(tm);
         }
     }
 }
