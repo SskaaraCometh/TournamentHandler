@@ -48,7 +48,7 @@ namespace TrackerLibrary
                 previousRound = currRound;
 
                 currRound = new List<MatchupModel>();
-                round++;
+                round+=1;
             }
 
         }
