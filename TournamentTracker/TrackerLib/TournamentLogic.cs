@@ -83,7 +83,7 @@ namespace TrackerLibrary
             int output = 0;
             int totalTeams = 1;
 
-            for(int i = 1; i < rounds; i++)
+            for(int i = 1; i <= rounds; i++)
             {
                 totalTeams *= 2;
             }
@@ -105,7 +105,7 @@ namespace TrackerLibrary
                 val *= 2;
             }
 
-            return 0;
+            return output;
         }
 
         private static List<TeamModel> RandomiseTeamOrder(List<TeamModel> teams)
