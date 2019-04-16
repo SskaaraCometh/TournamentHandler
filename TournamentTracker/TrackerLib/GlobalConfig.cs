@@ -14,6 +14,12 @@ namespace TrackerLibrary
     /// </summary>
     public static class GlobalConfig
     {
+        public const string PrizesFile = "PrizeModels.csv";
+        public const string PeopleFile = "PersonModels.csv";
+        public const string TeamFile = "TeamModel.csv";
+        public const string TournamentFile = "TournamentModels.csv";
+        public const string MatchupFile = "MatchupModels.csv";
+        public const string MatchupEntryFile = "MatchupEntryModels.csv";
         /// <summary>
         /// Allows to read the database connections, but not set them
         /// </summary>
