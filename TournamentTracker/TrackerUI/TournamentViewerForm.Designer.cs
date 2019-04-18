@@ -32,7 +32,7 @@
             this.tournamentNameLabel = new System.Windows.Forms.Label();
             this.roundLabel = new System.Windows.Forms.Label();
             this.roundDropDown = new System.Windows.Forms.ComboBox();
-            this.unplayerdOnlyCheckbox = new System.Windows.Forms.CheckBox();
+            this.unplayedOnlyCheckbox = new System.Windows.Forms.CheckBox();
             this.matchupListbox = new System.Windows.Forms.ListBox();
             this.teamOneName = new System.Windows.Forms.Label();
             this.teamTwoName = new System.Windows.Forms.Label();
@@ -86,18 +86,19 @@
             this.roundDropDown.TabIndex = 3;
             this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
-            // unplayerdOnlyCheckbox
+            // unplayedOnlyCheckbox
             // 
-            this.unplayerdOnlyCheckbox.AutoSize = true;
-            this.unplayerdOnlyCheckbox.BackColor = System.Drawing.Color.White;
-            this.unplayerdOnlyCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.unplayerdOnlyCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.unplayerdOnlyCheckbox.Location = new System.Drawing.Point(103, 126);
-            this.unplayerdOnlyCheckbox.Name = "unplayerdOnlyCheckbox";
-            this.unplayerdOnlyCheckbox.Size = new System.Drawing.Size(165, 34);
-            this.unplayerdOnlyCheckbox.TabIndex = 4;
-            this.unplayerdOnlyCheckbox.Text = "Unplayed Only";
-            this.unplayerdOnlyCheckbox.UseVisualStyleBackColor = false;
+            this.unplayedOnlyCheckbox.AutoSize = true;
+            this.unplayedOnlyCheckbox.BackColor = System.Drawing.Color.White;
+            this.unplayedOnlyCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.unplayedOnlyCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.unplayedOnlyCheckbox.Location = new System.Drawing.Point(103, 126);
+            this.unplayedOnlyCheckbox.Name = "unplayedOnlyCheckbox";
+            this.unplayedOnlyCheckbox.Size = new System.Drawing.Size(165, 34);
+            this.unplayedOnlyCheckbox.TabIndex = 4;
+            this.unplayedOnlyCheckbox.Text = "Unplayed Only";
+            this.unplayedOnlyCheckbox.UseVisualStyleBackColor = false;
+            this.unplayedOnlyCheckbox.CheckedChanged += new System.EventHandler(this.unplayerdOnlyCheckbox_CheckedChanged);
             // 
             // matchupListbox
             // 
@@ -194,6 +195,7 @@
             this.scoreButton.TabIndex = 13;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
+            this.scoreButton.Click += new System.EventHandler(this.scoreButton_Click);
             // 
             // TournamentViewerForm
             // 
@@ -210,7 +212,7 @@
             this.Controls.Add(this.teamTwoName);
             this.Controls.Add(this.teamOneName);
             this.Controls.Add(this.matchupListbox);
-            this.Controls.Add(this.unplayerdOnlyCheckbox);
+            this.Controls.Add(this.unplayedOnlyCheckbox);
             this.Controls.Add(this.roundDropDown);
             this.Controls.Add(this.roundLabel);
             this.Controls.Add(this.tournamentNameLabel);
@@ -230,7 +232,7 @@
         private System.Windows.Forms.Label tournamentNameLabel;
         private System.Windows.Forms.Label roundLabel;
         private System.Windows.Forms.ComboBox roundDropDown;
-        private System.Windows.Forms.CheckBox unplayerdOnlyCheckbox;
+        private System.Windows.Forms.CheckBox unplayedOnlyCheckbox;
         private System.Windows.Forms.ListBox matchupListbox;
         private System.Windows.Forms.Label teamOneName;
         private System.Windows.Forms.Label teamTwoName;
