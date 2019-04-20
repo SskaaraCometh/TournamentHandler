@@ -43,7 +43,6 @@ namespace TrackerUI
             matchupListbox.DisplayMember = "DisplayName";
         }
 
-
         private void LoadRounds()
         {
             rounds.Clear();
@@ -171,7 +170,7 @@ namespace TrackerUI
 
         private string ValidateData()
         {
-            string output = " ";
+            string output = "";
 
             double teamOneScore = 0;
             double teamTwoScore = 0;
