@@ -11,7 +11,6 @@ namespace TrackerLibrary.DataAccess
     public class TextFileConnector : IDataConnection
     {
 
-
         /// <summary>
         /// Saves a new prize to the database
         ///For each model, store them in their own textfile
@@ -135,6 +134,19 @@ namespace TrackerLibrary.DataAccess
         public void UpdateMatchup(MatchupModel model)
         {
             model.UpdateMatchupToFile();
+        }
+
+        public void CompleteTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = GlobalConfig.TournamentFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels();
+
+            tournaments.Remove(model);
+            tournaments.SaveToTournamentFile();
+
+            TournamentLogic.UpdateTournamentResults(model);
         }
     }
 }
